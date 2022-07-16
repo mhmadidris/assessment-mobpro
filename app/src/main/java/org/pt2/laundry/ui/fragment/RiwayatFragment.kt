@@ -53,16 +53,21 @@ class RiwayatFragment : Fragment() {
         db = FirebaseFirestore.getInstance()
         db.collection("laundry").get().addOnSuccessListener { result ->
             shimmerFrameLayout.stopShimmer()
-            shimmerFrameLayout.visibility = View.GONE
-            binding.listView.visibility = View.VISIBLE
-            for (userSnapshot in result) {
+            if (result != null) {
+                shimmerFrameLayout.visibility = View.GONE
+                binding.listView.visibility = View.VISIBLE
+                for (userSnapshot in result) {
 
-                val user = userSnapshot.toObject(Laundry::class.java)
-                laundryArrayList.add(user)
+                    val user = userSnapshot.toObject(Laundry::class.java)
+                    laundryArrayList.add(user)
 
+                }
+
+                laundryRecylerView.adapter = RiwayatAdapter(laundryArrayList)
+            } else {
+                shimmerFrameLayout.visibility = View.GONE
+                binding.emptyDisplay.visibility = View.VISIBLE
             }
-
-            laundryRecylerView.adapter = RiwayatAdapter(laundryArrayList)
         }
     }
 

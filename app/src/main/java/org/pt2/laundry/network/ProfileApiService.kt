@@ -7,8 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://raw.githubusercontent.com/" +
-        "indraazimi/galeri-hewan/static-api/"
+private const val BASE_URL = "https://api.unsplash.com/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -20,7 +19,7 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ProfileApiService {
-    @GET("static-api.json")
+    @GET("search/photos?query=user&client_id=pnr_0qFMCqYn3h66od1pg1bk_i_ZR8ZQKG_Xg6cxcZU")
     suspend fun getProfile(): List<Profile>
 }
 
@@ -29,8 +28,8 @@ object ProfileApi {
         retrofit.create(ProfileApiService::class.java)
     }
 
-    fun getHewanUrl(nama: String): String {
-        return "$BASE_URL$nama.jpg"
+    fun getHewanUrl(): String {
+        return "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMzkzMjV8MHwxfHNlYXJjaHwzfHx1c2VyfGVufDB8fHx8MTY1NjAxNDEwOA&ixlib=rb-1.2.1&q=80&w=400"
     }
 }
 

@@ -116,7 +116,7 @@ class HomeFragment : Fragment() {
                 shimmerFrameLayout.visibility = View.GONE
                 binding.homeLayout.visibility = View.VISIBLE
 
-//                binding.idLaundryText.text = snapshot.child("name").value.toString()
+                binding.idLaundryText.text = snapshot.child("name").value.toString()
             }
 
             override fun onCancelled(error: DatabaseError) {

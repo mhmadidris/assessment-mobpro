@@ -23,12 +23,9 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val media = "https://github.com/indraazimi/galeri-hewan/blob/master/screenshots/main.png"
         Glide.with(this)
-            .load(media)
-            .error(R.drawable.ic_baseline_broken_image_24)
+            .load(ProfileApi.getHewanUrl())
             .into(binding.imageView)
-        println("coba")
 
         val actionbar = supportActionBar
         actionbar!!.title = "Profile"

@@ -24,8 +24,8 @@
         android:id="@+id/homeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true"
         android:visibility="gone"
+        android:fillViewport="true"
         tools:ignore="MissingConstraints,ScrollViewCount">
 
         <LinearLayout

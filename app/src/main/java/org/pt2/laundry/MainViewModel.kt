@@ -38,7 +38,7 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 data.postValue(ProfileApi.service.getProfile())
-                println("Berhasil")
+                println(ProfileApi.service.getProfile() + " coba ")
             } catch (e: Exception) {
                 Log.d("MainViewModel", "Failure: ${e.message}")
                 println("Gagal")
